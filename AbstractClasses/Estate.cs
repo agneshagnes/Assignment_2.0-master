@@ -61,6 +61,6 @@ namespace Assignment_1.AbstractClasses
         /// </summary>
         /// <returns></returns>
         public abstract string ToString();
-        
+        public abstract string UniqueText();
     }
 }

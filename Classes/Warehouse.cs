@@ -36,5 +36,9 @@ namespace Assignment_1.Classes
             string result = $"-- {Id}  --------  {LegalForm}  -----------  {Category}  ---------  {TypeAll}  --------  {Address.Country}  -------  {Address.City}  --------  {Address.Street}  ------------  {Address.ZIPCode}  ---------- Capacity: {cubicMeterCapacity}";
             return result;
         }
+        public override string UniqueText()
+        {
+            return cubicMeterCapacity;
+        }
     }
 }

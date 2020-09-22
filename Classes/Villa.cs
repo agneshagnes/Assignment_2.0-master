@@ -54,5 +54,9 @@ namespace Assignment_1.Classes
             string result = $"-- {Id}  --------  {LegalForm}  -----------  {Category}  ---------  {TypeAll}  --------  {Address.Country}  -------  {Address.City}  --------  {Address.Street}  ------------  {Address.ZIPCode}  ---------- LawnSize: {lawnSize}";
             return result;
         }
+        public override string UniqueText()
+        {
+            return lawnSize;
+        }
     }
 }

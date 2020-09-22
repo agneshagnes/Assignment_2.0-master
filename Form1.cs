@@ -47,11 +47,15 @@ namespace Assignment_2._0
             string zipCode = textBoxZipCode.Text;
             string street = textBoxStreet.Text;
             Category category = (Category)comboBox3.SelectedItem;
-            var type = comboBox4.SelectedItem;
+           // var type = comboBox4.SelectedItem;
             string text = textBox6.Text;
             TypeAll typeAll = (TypeAll)comboBox4.SelectedItem;
+            string changeEstatetext = textBoxChangeEstate.Text; 
 
-            estateHandler.ChangeEstate(id, legalForm, country, city, zipCode, street, category, type, text, image, typeAll);
+         estateHandler.ChangeEstate(comboBoxLegalForm, comboBoxCountry, comboBox3, comboBox4, textBoxChangeEstate, textBoxCity, textBoxZipCode, textBoxStreet, textBox6, changeEstatetext, textId, pictureBoxImage);
+            comboBox4_SelectedIndexChanged(sender, e);
+            textId.ReadOnly = true;
+            btnCreateEstate.Enabled = false;
         }
 
         private void label15_Click(object sender, EventArgs e)

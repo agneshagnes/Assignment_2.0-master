@@ -53,6 +53,11 @@ namespace Assignment_1.Classes
            
             string result = $"-- {Id}  --------  {LegalForm}  -----------  {Category}  ---------  {TypeAll}  --------  {Address.Country}  -------  {Address.City}  --------  {Address.Street}  ------------  {Address.ZIPCode}  ---------- Floor number: {floorNumber}";
             return result;
-        } 
+        }
+        public override string UniqueText()
+        {
+
+            return floorNumber;
+        }
     }
 }

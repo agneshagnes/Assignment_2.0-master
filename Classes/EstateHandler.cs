@@ -31,6 +31,9 @@ namespace Assignment_1.Classes
         private TextBox textzip;
         private TextBox textStreet;
         private TextBox textUnique;
+        private TextBox textchange;
+        private PictureBox pictureBoxImage;
+        //private String changebtn;
 
 
 
@@ -265,6 +268,8 @@ namespace Assignment_1.Classes
         }
         public Estate SearchEstate(TypeAll type, string city)
         {
+
+
             string estatesList = "";
             foreach (Estate e in estates)
             {
@@ -280,32 +285,47 @@ namespace Assignment_1.Classes
             return null;
         }
 
-        public Estate ChangeEstate(string id, LegalForms legalForm, Countries country, string city, string zipCode, string street, Category category, object type, string text, Bitmap image, TypeAll typeAll)
+        public Estate ChangeEstate(ComboBox comboBoxLegalForm, ComboBox comboBoxCountry, ComboBox comboBocCategory, ComboBox comboBoxType, TextBox textchange, TextBox textcity, TextBox textzip, TextBox textStreet, TextBox textUnique, string changebtn, TextBox textId, PictureBox pictureBoxImage)
         {
-            if (!ids.Contains(id))
-            {
-                MessageBox.Show($"There is no Estate that has the id {id}");
-                return null;
-            }
+            //.ChangeEstate(id, legalForm, country, city, zipCode, street, category, text, image, typeAll, comboBoxLegalForm, comboBoxCountry, comboBox3, comboBox4, textBoxChangeEstate, textBoxCity, textBoxZipCode, textBoxStreet, textBox6);
+            this.comboBoxLegalForm = comboBoxLegalForm;
+            this.comboBocCategory = comboBocCategory;
+            this.comboBoxCountry = comboBoxCountry;
+            this.comboBoxType = comboBoxType;
+            this.textchange = textchange;
+            this.textcity = textcity;
+            this.textzip = textzip;
+            this.textStreet = textStreet;
+            this.textUnique = textUnique;
+            this.textId = textId;
+            this.pictureBoxImage = pictureBoxImage;
 
             foreach (Estate e in estates)
             {
-                if (e.Id == id)
+                if (e.Id == changebtn)
                 {
+                    
                     comboBoxLegalForm.SelectedItem = e.LegalForm;
                     comboBoxCountry.SelectedItem = e.Address.Country;
                     comboBocCategory.SelectedItem = e.Category;
                     comboBoxType.SelectedItem = e.TypeAll;
-                    textId.Text = e.Id;
-                    textcity.Text = e.Address.City;
-                    textzip.Text = e.Address.ZIPCode;
-                    textStreet.Text = e.Address.Street;
-                    textUnique.Text = "kkkk";
+                    textId.Text = changebtn;
+                    textcity.Text = e.Address.City.ToString();
+                    textzip.Text = e.Address.ZIPCode.ToString();
+                    textStreet.Text = e.Address.Street.ToString();
+                    textUnique.Text = e.UniqueText();
+                    pictureBoxImage.Image = e.Image;
+                    return e;
                 }
+                
+                    MessageBox.Show($"There is no Estate object in the hashSet that has the id {changebtn}");
+                
             }
             return null;
-        
-        }
+            }
+            
 
+           
+      
      }
 }
